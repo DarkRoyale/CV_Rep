@@ -1,0 +1,129 @@
+/* Стилі специфічні для сторінки Certificates */
+
+.block-certs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 60px);
+    /* Висота екрану мінус футер */
+    padding: 40px;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 ширші колонки для сертифікатів */
+    gap: 30px;
+    /* Відстань між плитками */
+    width: 100%;
+    max-width: 900px;
+    /* Трохи менша максимальна ширина */
+}
+
+/* Glassmorphism стиль для плиток сертифікатів */
+.cert-card {
+    background: rgba(255, 255, 255, 0.7);
+    /* Трохи менш прозорий білий */
+    backdrop-filter: blur(15px);
+    /* Розмиття фону */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    /* Легка золота рамка */
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: row;
+    /* Розташовуємо іконку та текст горизонтально */
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(243, 156, 18, 0.1);
+    /* Ледь помітна золота тінь */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.cert-card:hover {
+    transform: translateY(-8px);
+    /* Підіймається вверх */
+    box-shadow: 0 15px 40px rgba(243, 156, 18, 0.2);
+    /* Золота тінь стає більшою */
+    background: rgba(255, 255, 255, 0.9);
+    /* Стає менш прозорою */
+    border-color: #f39c12;
+    /* Рамка стає яскраво-золотою */
+}
+
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.cert-icon {
+    font-size: 50px;
+    margin-right: 25px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(243, 156, 18, 0.3));
+    /* Тінь для іконки-медалі */
+}
+
+.cert-card:hover .cert-icon {
+    transform: scale(1.1) rotate(5deg);
+    /* Легкий нахил при наведенні */
+}
+
+.cert-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+    color: #d35400;
+    /* Темно-помаранчевий для заголовку */
+}
+
+.cert-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+    font-style: italic;
+    /* Курсив для опису або організації, що видала сертифікат */
+}
+
+/* Дата або ідентифікатор сертифікату */
+.cert-meta {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #7f8c8d;
+    font-weight: 600;
+}
+
+/* Адаптивність: 1 колонка на мобільних і планшетах */
+@media (max-width: 900px) {
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cert-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
