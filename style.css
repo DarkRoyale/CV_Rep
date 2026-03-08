@@ -150,7 +150,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    flex-direction: column;
+    min-height: 80px;
+    text-align: center;
     background-color: #fff8eb;
     /* Трохи темніший кремовий для футера */
     color: #e15759;
@@ -164,4 +166,180 @@ footer {
 main {
     /* Робимо block за замовчуванням */
     display: block;
+}
+
+
+/* Стилі для модального вікна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #e15759;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.submit-btn {
+    background-color: #e15759;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.submit-btn:hover {
+    background-color: #c0392b;
+}
+
+/* --- СТИЛІ ДЛЯ ТЕМНОЇ ТЕМИ (ПРЕМІУМ ДИЗАЙН) --- */
+body.dark-mode {
+    background-color: #121212;
+    /* Глибокий темний фон */
+    color: #e0e0e0;
+}
+
+body.dark-mode .block-3 {
+    /* Використовуємо наш новий темний SVG з салютами */
+    background: #121212 url('firework-dark.svg') repeat;
+    background-size: 300px 300px;
+}
+
+body.dark-mode header {
+    background: #121212 url('firework-dark.svg') repeat;
+    background-size: 300px 300px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    /* Більш глибока тінь на тексті для читабельності */
+    border-bottom: 1px solid rgba(242, 142, 43, 0.2);
+    /* Тонка золотиста лінія */
+}
+
+body.dark-mode nav {
+    background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+    /* Градієнт для глибини */
+    box-shadow: 2px 0 15px rgba(242, 142, 43, 0.15);
+    /* Легка тепла тінь */
+}
+
+body.dark-mode footer {
+    background: linear-gradient(90deg, #121212 0%, #1a1a1a 50%, #121212 100%);
+    color: #f28e2b;
+    box-shadow: 0 -2px 15px rgba(242, 142, 43, 0.15);
+}
+
+body.dark-mode nav a {
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+body.dark-mode nav a:hover {
+    background-color: rgba(242, 142, 43, 0.15);
+    color: #f28e2b;
+    box-shadow: inset 2px 0 0 #f28e2b;
+    /* Стильна лінія зліва при наведенні */
+}
+
+/* САМА CV - ЗАЛИШАЄМО БІЛОЮ */
+body.dark-mode .container-center {
+    background-color: #ffffff;
+    /* Як ти й просив - біла карточка */
+    color: #1f1f1f;
+    /* Чорний текст на білому фоні */
+    /* Додаємо преміальну, глибоку і м'яку золотисто-чорну тінь, щоб відірвати білий лист від темного фону */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(242, 142, 43, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Коментарі у білій CV також залишаємо як було, щоб не зливались */
+body.dark-mode .comment-card {
+    background-color: #f9f9f9;
+    color: #333;
+    border-left: 4px solid #f28e2b;
+}
+
+/* --- СТИЛІ ДЛЯ КНОПКИ ПЕРЕМИКАННЯ ТЕМИ --- */
+.theme-btn {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid #e15759;
+    color: #e15759;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background-color: #e15759;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(225, 87, 89, 0.3);
+}
+
+body.dark-mode .theme-btn {
+    border-color: #f28e2b;
+    color: #f28e2b;
+}
+
+body.dark-mode .theme-btn:hover {
+    background-color: #f28e2b;
+    color: #121212;
+    box-shadow: 0 4px 10px rgba(242, 142, 43, 0.3);
 }
