@@ -1,0 +1,2 @@
+[console_scripts]
+agentpipe = agentpipe.cli:main
