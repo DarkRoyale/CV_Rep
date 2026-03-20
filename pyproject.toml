@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentpipe"
+version = "0.1.0"
+description = "CLI-first AI agent pipeline with parallel ticket execution"
+readme = "README_AGENTPIPE.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["ai", "agents", "pipeline", "cli", "automation"]
+dependencies = [
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+agentpipe = "agentpipe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agentpipe*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
